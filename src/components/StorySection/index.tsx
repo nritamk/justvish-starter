@@ -14,11 +14,9 @@ export interface StorySectionData {
     bg: 'light' | 'pale' | 'dark';
 }
 
-interface Props {
-    data: StorySectionData;
-}
+type Props = StorySectionData;
 
-export default function StorySection({ data }: Props) {
+export default function StorySection({ id, number, eyebrow, title, body, image, imageAlt, align, bg }: Props) {
     const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -29,7 +27,7 @@ export default function StorySection({ data }: Props) {
         const ctx = gsap.context(() => {
             const text = root.querySelector('.story-text');
             const visual = root.querySelector('.story-visual');
-            const number = root.querySelector('.story-number');
+            const numberEl = root.querySelector('.story-number');
 
             gsap.from(text, {
                 scrollTrigger: { trigger: root, start: 'top 75%', toggleActions: 'play none none reverse' },
@@ -41,13 +39,12 @@ export default function StorySection({ data }: Props) {
                 y: 80, opacity: 0, duration: 1.1, delay: 0.15, ease: 'power3.out',
             });
 
-            if (number) {
-                gsap.from(number, {
+            if (numberEl) {
+                gsap.from(numberEl, {
                     scrollTrigger: { trigger: root, start: 'top 75%', toggleActions: 'play none none reverse' },
                     y: 30, opacity: 0, duration: 0.9, ease: 'power2.out',
                 });
-
-                gsap.to(number, {
+                gsap.to(numberEl, {
                     scrollTrigger: { trigger: root, start: 'top bottom', end: 'bottom top', scrub: 1 },
                     y: -50,
                 });
@@ -65,16 +62,17 @@ export default function StorySection({ data }: Props) {
     return (
         <section
             ref={sectionRef}
-            id={data.id}
+            id={id}
             className="story"
-            data-bg={data.bg}
-            data-align={data.align}>
+            data-bg={bg}
+            data-align={align}
+        >
             <div className="container story-grid">
                 <div className="story-text">
-                    <span className="story-number" aria-hidden="true">{data.number}</span>
-                    <span className="eyebrow">{data.eyebrow}</span>
-                    <h2>{data.title}</h2>
-                    <p>{data.body}</p>
+                    <span className="story-number" aria-hidden="true">{number}</span>
+                    <span className="eyebrow" data-sb-field-path="eyebrow">{eyebrow}</span>
+                    <h2 data-sb-field-path="title">{title}</h2>
+                    <p data-sb-field-path="body">{body}</p>
 
                     <a className="btn-pill btn-ghost" href="#contact">
                         Discuss this
@@ -87,7 +85,12 @@ export default function StorySection({ data }: Props) {
 
                 <div className="story-visual">
                     <div className="frame">
-                        <img src={data.image} alt={data.imageAlt} loading="lazy" />
+                        <img
+                            src={image}
+                            alt={imageAlt}
+                            loading="lazy"
+                            data-sb-field-path="image#@src imageAlt#@alt"
+                        />
                         <div className="frame-corner tl"></div>
                         <div className="frame-corner tr"></div>
                         <div className="frame-corner bl"></div>
@@ -95,7 +98,7 @@ export default function StorySection({ data }: Props) {
                     </div>
                     <div className="frame-caption">
                         <span className="rec"></span>
-                        REC · 4K · {data.eyebrow}
+                        REC · 4K · <span data-sb-field-path="eyebrow">{eyebrow}</span>
                     </div>
                 </div>
             </div>

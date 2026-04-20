@@ -1,7 +1,36 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
-export default function HeroSection() {
+interface StatItem {
+    value: string;
+    label: string;
+}
+
+interface Props {
+    eyebrow?: string;
+    title?: string;
+    lead?: string;
+    ctaLabel?: string;
+    ctaUrl?: string;
+    heroImage?: string;
+    heroImageAlt?: string;
+    stats?: StatItem[];
+}
+
+export default function HeroSection({
+    eyebrow = 'JustVish Creative Studios',
+    title = "We're not just another creative agency.",
+    lead = "We're storytellers, filmmakers, and brand architects who believe in the transformative power of visual narrative.",
+    ctaLabel = 'Start Your Story',
+    ctaUrl = '#contact',
+    heroImage = '/assets/hero-camera.png',
+    heroImageAlt = 'Cinematographer holding a professional cinema camera in soft golden light',
+    stats = [
+        { value: '120+', label: 'Films delivered' },
+        { value: '40+', label: 'Brands built' },
+        { value: '9 yrs', label: 'Of storytelling' },
+    ],
+}: Props) {
     const heroRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -52,20 +81,19 @@ export default function HeroSection() {
 
             <div className="container hero-grid">
                 <div className="hero-content">
-                    <span className="eyebrow">JustVish Creative Studios</span>
+                    <span className="eyebrow" data-sb-field-path="eyebrow">{eyebrow}</span>
 
-                    <h1 className="hero-title">
-                        We're not just another <em>creative</em> agency.
+                    <h1 className="hero-title" data-sb-field-path="title">
+                        {title}
                     </h1>
 
-                    <p className="hero-lead">
-                        We're storytellers, filmmakers, and brand architects who believe in the
-                        transformative power of visual narrative.
+                    <p className="hero-lead" data-sb-field-path="lead">
+                        {lead}
                     </p>
 
                     <div className="hero-actions">
-                        <a className="btn-pill" href="#contact">
-                            Start Your Story
+                        <a className="btn-pill" href={ctaUrl} data-sb-field-path="ctaUrl#@href ctaLabel">
+                            {ctaLabel}
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2"
                                       strokeLinecap="round" strokeLinejoin="round" />
@@ -74,27 +102,22 @@ export default function HeroSection() {
                         <a className="btn-pill btn-ghost" href="#brand-identity">See Our Work</a>
                     </div>
 
-                    <div className="hero-stats">
-                        <div>
-                            <strong>120+</strong>
-                            <span>Films delivered</span>
-                        </div>
-                        <div>
-                            <strong>40+</strong>
-                            <span>Brands built</span>
-                        </div>
-                        <div>
-                            <strong>9 yrs</strong>
-                            <span>Of storytelling</span>
-                        </div>
+                    <div className="hero-stats" data-sb-field-path="stats">
+                        {stats.map((stat, i) => (
+                            <div key={i} data-sb-field-path={`.${i}`}>
+                                <strong data-sb-field-path="value">{stat.value}</strong>
+                                <span data-sb-field-path="label">{stat.label}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
                 <div className="hero-visual">
                     <img
-                        src="/assets/hero-camera.png"
-                        alt="Cinematographer holding a professional cinema camera in soft golden light"
+                        src={heroImage}
+                        alt={heroImageAlt}
                         loading="eager"
+                        data-sb-field-path="heroImage#@src heroImageAlt#@alt"
                     />
                 </div>
             </div>

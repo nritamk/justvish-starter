@@ -30,6 +30,15 @@ export const PageLayout: Model = {
             localized: false
         },
         {
+            type: 'model',
+            name: 'hero',
+            label: 'Hero',
+            required: false,
+            hidden: false,
+            localized: false,
+            models: ['JustVishHero']
+        },
+        {
             type: 'list',
             name: 'sections',
             label: 'Sections',
@@ -46,6 +55,7 @@ export const PageLayout: Model = {
                     'FeaturedPostsSection',
                     'GenericSection',
                     'ImageGallerySection',
+                    'JustVishStorySection',
                     'PricingSection',
                     'RecentPostsSection'
                 ]

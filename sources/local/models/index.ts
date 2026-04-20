@@ -42,6 +42,9 @@ import { VideoBlock } from './VideoBlock';
 import { MetaTag } from './MetaTag';
 import { FooterLinksGroup } from './FooterLinksGroup';
 import { Seo } from './Seo';
+import { JustVishHero } from './JustVishHero';
+import { JustVishStat } from './JustVishStat';
+import { JustVishStorySection } from './JustVishStorySection';
 
 export const allModels = {
     BackgroundImage,
@@ -86,5 +89,8 @@ export const allModels = {
     VideoBlock,
     MetaTag,
     FooterLinksGroup,
-    Seo
+    Seo,
+    JustVishHero,
+    JustVishStat,
+    JustVishStorySection
 };
