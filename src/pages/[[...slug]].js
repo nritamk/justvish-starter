@@ -1,55 +1,42 @@
-import React from 'react';
-import Head from 'next/head';
-import { allContent } from '../utils/local-content';
-import { getComponent } from '../components/components-registry';
-import { resolveStaticProps } from '../utils/static-props-resolvers';
-import { resolveStaticPaths } from '../utils/static-paths-resolvers';
-import { seoGenerateTitle, seoGenerateMetaTags, seoGenerateMetaDescription } from '../utils/seo-utils';
+import fs from 'fs';
+import path from 'path';
+import fm from 'front-matter';
+import { glob } from 'glob';
 
-function Page(props) {
-    const { page, site } = props;
-    const { modelName } = page.__metadata;
-    if (!modelName) {
-        throw new Error(`page has no type, page '${props.path}'`);
-    }
-    const PageLayout = getComponent(modelName);
-    if (!PageLayout) {
-        throw new Error(`no page layout matching the page model: ${modelName}`);
-    }
-    const title = seoGenerateTitle(page, site);
-    const metaTags = seoGenerateMetaTags(page, site);
-    const metaDescription = seoGenerateMetaDescription(page, site);
+export default function Page({ title }) {
     return (
-        <>
-            <Head>
-                <title>{title}</title>
-                {metaDescription && <meta name="description" content={metaDescription} />}
-                {metaTags.map((metaTag) => {
-                    if (metaTag.format === 'property') {
-                        // OpenGraph meta tags (og:*) should be have the format <meta property="og:…" content="…">
-                        return <meta key={metaTag.property} property={metaTag.property} content={metaTag.content} />;
-                    }
-                    return <meta key={metaTag.property} name={metaTag.property} content={metaTag.content} />;
-                })}
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                {site.favicon && <link rel="icon" href={site.favicon} />}
-            </Head>
-            <PageLayout page={page} site={site} />
-        </>
+        <main style={{ display: 'flex', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
+            <h1>{title}</h1>
+        </main>
     );
 }
 
-export function getStaticPaths() {
-    const data = allContent();
-    const paths = resolveStaticPaths(data);
+export async function getStaticPaths() {
+    const contentPagesDir = path.join(process.cwd(), 'content', 'pages');
+    const files = await glob('**/*.md', { cwd: contentPagesDir });
+    const paths = files.map((file) => {
+        const relative = file.replace(/\.md$/, '').replace(/\\/g, '/');
+        const slugParts = relative === 'index' ? [] : relative.split('/');
+        return { params: { slug: slugParts } };
+    });
     return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-    const data = allContent();
-    const urlPath = '/' + (params.slug || []).join('/');
-    const props = await resolveStaticProps(urlPath, data);
-    return { props };
-}
+    const slugParts = params?.slug ?? [];
+    const filePart = slugParts.length > 0 ? path.join(...slugParts) : 'index';
+    const filePath = path.join(process.cwd(), 'content', 'pages', `${filePart}.md`);
 
-export default Page;
+    if (!fs.existsSync(filePath)) {
+        return { notFound: true };
+    }
+
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { attributes } = fm(fileContent);
+
+    return {
+        props: {
+            title: attributes.title ?? 'Hello World'
+        }
+    };
+}
