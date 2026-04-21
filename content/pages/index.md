@@ -25,19 +25,6 @@ hero:
       label: Of storytelling
 sections:
   - type: JustVishStorySection
-    id: brand-identity
-    number: '01'
-    eyebrow: Brand Identity
-    title: We shape the soul of your brand.
-    body: >-
-      We shape the core of your brand, including its design, voice, and
-      personality. We identify your ideal audience so every message comes
-      through loud and clear.
-    image: /assets/section-brand.svg
-    imageAlt: Cinematic close-up of a camera lens reflecting a brand identity moodboard
-    align: right
-    bg: light
-  - type: JustVishStorySection
     id: communication-strategy
     number: '02'
     eyebrow: Communication Strategy
@@ -50,6 +37,19 @@ sections:
     imageAlt: Director reviewing storyboard frames in a softly-lit studio
     align: left
     bg: pale
+  - type: JustVishStorySection
+    id: brand-identity
+    number: '01'
+    eyebrow: Brand Identity
+    title: We shape the soul of your brand.
+    body: >-
+      We shape the core of your brand, including its design, voice, and
+      personality. We identify your ideal audience so every message comes
+      through loud and clear.
+    image: /assets/section-brand.svg
+    imageAlt: Cinematic close-up of a camera lens reflecting a brand identity moodboard
+    align: right
+    bg: light
   - type: JustVishStorySection
     id: film-production
     number: '03'
