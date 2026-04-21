@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { allContent } from '../utils/local-content';
 import { getComponent } from '../components/components-registry';
 
-export default function Page({ page }) {
+export default function Page({ page, header, footer }) {
     if (!page) return null;
     const { modelName } = page.__metadata;
     const PageLayout = getComponent(modelName);
@@ -23,7 +23,7 @@ export default function Page({ page }) {
                     <meta name="description" content={page.seo.metaDescription} />
                 )}
             </Head>
-            <PageLayout page={page} />
+            <PageLayout page={page} header={header} footer={footer} />
         </>
     );
 }
@@ -41,9 +41,11 @@ export function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const { pages } = allContent();
+    const { pages, data } = allContent();
     const urlPath = '/' + (params?.slug ?? []).join('/');
     const page = pages.find((p) => p.__metadata.urlPath === urlPath);
     if (!page) return { notFound: true };
-    return { props: { page } };
+    const header = data.find((d) => d.__metadata.modelName === 'Header') ?? null;
+    const footer = data.find((d) => d.__metadata.modelName === 'Footer') ?? null;
+    return { props: { page, header, footer } };
 }

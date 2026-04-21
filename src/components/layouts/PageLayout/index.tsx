@@ -42,11 +42,57 @@ interface PageProps {
     __metadata: { id: string; modelName: string; urlPath: string };
 }
 
-interface Props {
-    page: PageProps;
+interface NavLink {
+    label: string;
+    url: string;
 }
 
-export default function PageLayout({ page }: Props) {
+interface HeaderData {
+    title?: string;
+    primaryLinks?: NavLink[];
+    ctaLabel?: string;
+    ctaUrl?: string;
+    __metadata: { id: string; modelName: string };
+}
+
+interface FooterLink {
+    label: string;
+    url: string;
+}
+
+interface FooterLinksGroup {
+    title?: string;
+    links?: FooterLink[];
+}
+
+interface SocialLink {
+    altText?: string;
+    url?: string;
+    icon?: string;
+}
+
+interface FooterData {
+    brandName?: string;
+    text?: string;
+    ctaEyebrow?: string;
+    ctaHeading?: string;
+    ctaSubheading?: string;
+    ctaLabel?: string;
+    ctaUrl?: string;
+    primaryLinks?: FooterLinksGroup;
+    secondaryLinks?: FooterLinksGroup;
+    socialLinks?: SocialLink[];
+    copyrightText?: string;
+    __metadata: { id: string; modelName: string };
+}
+
+interface Props {
+    page: PageProps;
+    header?: HeaderData | null;
+    footer?: FooterData | null;
+}
+
+export default function PageLayout({ page, header, footer }: Props) {
     const { hero, sections = [] } = page;
     const pageId = page.__metadata?.id;
 
@@ -56,7 +102,14 @@ export default function PageLayout({ page }: Props) {
 
     return (
         <div data-sb-object-id={pageId}>
-            <Navbar />
+            <div data-sb-object-id={header?.__metadata?.id}>
+                <Navbar
+                    title={header?.title}
+                    primaryLinks={header?.primaryLinks}
+                    ctaLabel={header?.ctaLabel}
+                    ctaUrl={header?.ctaUrl}
+                />
+            </div>
             <main className="page">
                 {hero && (
                     <div data-sb-field-path="hero">
@@ -100,7 +153,21 @@ export default function PageLayout({ page }: Props) {
                     </section>
                 )}
             </main>
-            <Footer />
+            <div data-sb-object-id={footer?.__metadata?.id}>
+                <Footer
+                    brandName={footer?.brandName}
+                    text={footer?.text}
+                    ctaEyebrow={footer?.ctaEyebrow}
+                    ctaHeading={footer?.ctaHeading}
+                    ctaSubheading={footer?.ctaSubheading}
+                    ctaLabel={footer?.ctaLabel}
+                    ctaUrl={footer?.ctaUrl}
+                    primaryLinks={footer?.primaryLinks}
+                    secondaryLinks={footer?.secondaryLinks}
+                    socialLinks={footer?.socialLinks}
+                    copyrightText={footer?.copyrightText}
+                />
+            </div>
         </div>
     );
 }

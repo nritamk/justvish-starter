@@ -99,6 +99,60 @@ export const Footer: Model = {
             localized: false
         },
         {
+            type: 'string',
+            name: 'brandName',
+            label: 'Brand Name',
+            required: false,
+            default: 'JustVish Creative Studios',
+            hidden: false,
+            localized: false
+        },
+        {
+            type: 'string',
+            name: 'ctaEyebrow',
+            label: 'CTA Eyebrow',
+            required: false,
+            default: "Let's create something",
+            hidden: false,
+            localized: false
+        },
+        {
+            type: 'string',
+            name: 'ctaHeading',
+            label: 'CTA Heading',
+            required: false,
+            default: 'Have a story worth telling?',
+            hidden: false,
+            localized: false
+        },
+        {
+            type: 'string',
+            name: 'ctaSubheading',
+            label: 'CTA Subheading',
+            required: false,
+            default: "Let's roll camera.",
+            hidden: false,
+            localized: false
+        },
+        {
+            type: 'string',
+            name: 'ctaLabel',
+            label: 'CTA Label',
+            required: false,
+            default: 'Start a Project',
+            hidden: false,
+            localized: false
+        },
+        {
+            type: 'string',
+            name: 'ctaUrl',
+            label: 'CTA URL',
+            required: false,
+            default: 'mailto:hello@justvish.in',
+            hidden: false,
+            localized: false
+        },
+        {
             type: 'enum',
             name: 'colors',
             label: 'Colors',

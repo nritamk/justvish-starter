@@ -2,18 +2,29 @@ import { useState, useEffect } from 'react';
 
 interface NavLink {
     label: string;
-    href: string;
+    url: string;
 }
 
-const links: NavLink[] = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#brand-identity' },
-    { label: 'Work', href: '#film-production' },
-    { label: 'Contact', href: '#contact' },
+interface Props {
+    title?: string;
+    primaryLinks?: NavLink[];
+    ctaLabel?: string;
+    ctaUrl?: string;
+}
+
+const defaultLinks: NavLink[] = [
+    { label: 'Services', url: '#brand-identity' },
+    { label: 'Our Work', url: '#film-production' },
+    { label: 'About', url: '#about' },
+    { label: 'Contact', url: '#contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({
+    title = 'JustVish',
+    primaryLinks = defaultLinks,
+    ctaLabel = "Let's Connect",
+    ctaUrl = '#contact',
+}: Props) {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -36,19 +47,24 @@ export default function Navbar() {
                             <circle cx="16" cy="16" r="6" fill="currentColor" />
                         </svg>
                     </span>
-                    <span className="brand-name">JustVish</span>
+                    <span className="brand-name" data-sb-field-path="title">{title}</span>
                 </a>
 
-                <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
-                    {links.map((link) => (
-                        <li key={link.href}>
-                            <a href={link.href} onClick={closeMenu}>{link.label}</a>
+                <ul className={`nav-links${menuOpen ? ' open' : ''}`} data-sb-field-path="primaryLinks">
+                    {primaryLinks.map((link, i) => (
+                        <li key={link.url} data-sb-field-path={`.${i}`}>
+                            <a href={link.url} onClick={closeMenu} data-sb-field-path="url#@href label">{link.label}</a>
                         </li>
                     ))}
                 </ul>
 
-                <a className="btn-pill nav-cta" href="#contact" onClick={closeMenu}>
-                    Let's Connect
+                <a
+                    className="btn-pill nav-cta"
+                    href={ctaUrl}
+                    onClick={closeMenu}
+                    data-sb-field-path="ctaUrl#@href ctaLabel"
+                >
+                    {ctaLabel}
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2"
                               strokeLinecap="round" strokeLinejoin="round" />

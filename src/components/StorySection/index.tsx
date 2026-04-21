@@ -69,7 +69,7 @@ export default function StorySection({ id, number, eyebrow, title, body, image, 
         >
             <div className="container story-grid">
                 <div className="story-text">
-                    <span className="story-number" aria-hidden="true">{number}</span>
+                    <span className="story-number" aria-hidden="true" data-sb-field-path="number">{number}</span>
                     <span className="eyebrow" data-sb-field-path="eyebrow">{eyebrow}</span>
                     <h2 data-sb-field-path="title">{title}</h2>
                     <p data-sb-field-path="body">{body}</p>

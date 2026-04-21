@@ -51,6 +51,24 @@ export const Header: Model = {
             }
         },
         {
+            type: 'string',
+            name: 'ctaLabel',
+            label: 'CTA Label',
+            required: false,
+            default: "Let's Connect",
+            hidden: false,
+            localized: false
+        },
+        {
+            type: 'string',
+            name: 'ctaUrl',
+            label: 'CTA URL',
+            required: false,
+            default: '#contact',
+            hidden: false,
+            localized: false
+        },
+        {
             type: 'enum',
             name: 'variant',
             label: 'Arrangement',
