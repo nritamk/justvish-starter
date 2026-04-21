@@ -1,0 +1,21 @@
+{
+    "model": "JustVishStorySection",
+    "presets": [
+        {
+            "label": "Content & Film Production",
+            "locale": null,
+            "data": {
+                "id": "film-production",
+                "number": "03",
+                "eyebrow": "Content & Film Production",
+                "title": "Stories told frame by frame.",
+                "body": "We bring your brand to life with strong, high-quality content production. Whether it's an ad film, a docu-film, a podcast series, or eye-catching social media visuals.",
+                "image": "/assets/section-production.svg",
+                "imageAlt": "Cinematographer operating a cinema camera on a film set with golden lighting",
+                "align": "right",
+                "bg": "dark"
+            },
+            "thumbnail": "images/justvish-story-film-production.png"
+        }
+    ]
+}

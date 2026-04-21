@@ -47,19 +47,7 @@ export const Header: Model = {
             localized: false,
             items: {
                 type: 'model',
-                models: ['Button', 'Link', 'SubNav']
-            }
-        },
-        {
-            type: 'list',
-            name: 'secondaryLinks',
-            label: 'Secondary links',
-            required: false,
-            hidden: false,
-            localized: false,
-            items: {
-                type: 'model',
-                models: ['Button', 'Link']
+                models: ['Link']
             }
         },
         {

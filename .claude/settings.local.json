@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.json$\")",
+      "WebFetch(domain:visual-editor-reference.netlify.com)",
+      "Bash(npm run *)"
+    ]
+  }
+}

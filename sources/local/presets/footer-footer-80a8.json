@@ -2,142 +2,73 @@
     "model": "Footer",
     "presets": [
         {
-            "label": "Footer",
+            "label": "JustVish Footer",
             "locale": null,
             "data": {
-                "logo": {
-                    "url": "/images/logo-white.svg",
-                    "altText": "Logo light",
-                    "elementId": null,
-                    "styles": null,
-                    "$$type": "ImageBlock"
-                },
-                "title": null,
-                "text": "A description of your brand",
+                "text": "We don't just film. We tell your story.",
                 "primaryLinks": {
-                    "title": "Product",
+                    "title": "Studio",
                     "links": [
                         {
-                            "label": "Features",
-                            "altText": "Features page",
-                            "url": "/features",
-                            "showIcon": null,
-                            "icon": "arrowRight",
-                            "iconPosition": "right",
+                            "label": "Home",
+                            "url": "#home",
                             "style": "secondary",
-                            "elementId": null,
                             "$$type": "Link"
                         },
                         {
-                            "label": "Pricing",
-                            "altText": null,
-                            "url": "/pricing",
-                            "showIcon": null,
-                            "icon": "arrowRight",
-                            "iconPosition": "right",
+                            "label": "Services",
+                            "url": "#brand-identity",
                             "style": "secondary",
-                            "elementId": null,
                             "$$type": "Link"
                         },
                         {
-                            "label": "Documentation",
-                            "altText": null,
-                            "url": "/",
-                            "showIcon": null,
-                            "icon": "arrowRight",
-                            "iconPosition": "right",
+                            "label": "Our Work",
+                            "url": "#film-production",
                             "style": "secondary",
-                            "elementId": null,
+                            "$$type": "Link"
+                        },
+                        {
+                            "label": "Contact",
+                            "url": "#contact",
+                            "style": "secondary",
                             "$$type": "Link"
                         }
                     ],
-                    "styles": null,
                     "$$type": "FooterLinksGroup"
                 },
                 "secondaryLinks": {
-                    "title": "Company",
+                    "title": "Reach Us",
                     "links": [
                         {
-                            "label": "Careers",
-                            "altText": "careers page",
-                            "url": "/careers",
-                            "showIcon": null,
-                            "icon": "arrowRight",
-                            "iconPosition": "right",
+                            "label": "hello@justvish.in",
+                            "url": "mailto:hello@justvish.in",
                             "style": "secondary",
-                            "elementId": null,
                             "$$type": "Link"
                         },
                         {
-                            "label": "Blog",
-                            "altText": null,
-                            "url": "/blog",
-                            "showIcon": null,
-                            "icon": "arrowRight",
-                            "iconPosition": "right",
+                            "label": "Mumbai · India",
+                            "url": "#contact",
                             "style": "secondary",
-                            "elementId": null,
                             "$$type": "Link"
                         }
                     ],
-                    "styles": null,
                     "$$type": "FooterLinksGroup"
                 },
                 "socialLinks": [
                     {
-                        "altText": "GitHub link",
-                        "url": "https://github.com/netlify",
-                        "icon": "github",
-                        "elementId": null,
+                        "altText": "YouTube",
+                        "url": "https://youtube.com",
+                        "icon": "youtube",
                         "$$type": "Social"
                     },
                     {
-                        "altText": "Twitter link",
-                        "url": "https://twitter.com/netlify",
-                        "icon": "twitter",
-                        "elementId": null,
-                        "$$type": "Social"
-                    },
-                    {
-                        "altText": "LinkedIn link",
-                        "url": "https://www.linkedin.com/company/netlify",
-                        "icon": "linkedin",
-                        "elementId": null,
-                        "$$type": "Social"
-                    },
-                    {
-                        "altText": "Email link",
-                        "url": "/",
-                        "icon": "mail",
-                        "elementId": null,
+                        "altText": "Instagram",
+                        "url": "https://instagram.com",
+                        "icon": "instagram",
                         "$$type": "Social"
                     }
                 ],
-                "legalLinks": [
-                    {
-                        "label": "Terms",
-                        "altText": null,
-                        "url": "/",
-                        "showIcon": null,
-                        "icon": "arrowRight",
-                        "iconPosition": "right",
-                        "style": "secondary",
-                        "elementId": null,
-                        "$$type": "Link"
-                    },
-                    {
-                        "label": "Privacy",
-                        "altText": null,
-                        "url": "/",
-                        "showIcon": null,
-                        "icon": "arrowRight",
-                        "iconPosition": "right",
-                        "style": "secondary",
-                        "elementId": null,
-                        "$$type": "Link"
-                    }
-                ],
-                "copyrightText": "Powered by [Netlify](https://www.netlify.com/)",
+                "copyrightText": "© JustVish Creative Studios · All rights reserved.",
                 "colors": "bg-dark-fg-light",
                 "styles": null
             },

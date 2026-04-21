@@ -1,0 +1,36 @@
+{
+    "model": "JustVishHero",
+    "presets": [
+        {
+            "label": "JustVish Hero",
+            "locale": null,
+            "data": {
+                "eyebrow": "JustVish Creative Studios",
+                "title": "We're not just another creative agency.",
+                "lead": "We're storytellers, filmmakers, and brand architects who believe in the transformative power of visual narrative.",
+                "ctaLabel": "Start Your Story",
+                "ctaUrl": "#contact",
+                "heroImage": "/assets/hero-camera.png",
+                "heroImageAlt": "Cinematographer holding a professional cinema camera in soft golden light",
+                "stats": [
+                    {
+                        "value": "120+",
+                        "label": "Films delivered",
+                        "$$type": "JustVishStat"
+                    },
+                    {
+                        "value": "40+",
+                        "label": "Brands built",
+                        "$$type": "JustVishStat"
+                    },
+                    {
+                        "value": "9 yrs",
+                        "label": "Of storytelling",
+                        "$$type": "JustVishStat"
+                    }
+                ]
+            },
+            "thumbnail": "images/justvish-hero-hero.png"
+        }
+    ]
+}

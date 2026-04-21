@@ -1,11 +1,18 @@
 {
-    "model": "Header",
+    "model": "FooterLinksGroup",
     "presets": [
         {
-            "label": "JustVish Header",
+            "label": "Studio links",
             "locale": null,
             "data": {
-                "primaryLinks": [
+                "title": "Studio",
+                "links": [
+                    {
+                        "label": "Home",
+                        "url": "#home",
+                        "style": "secondary",
+                        "$$type": "Link"
+                    },
                     {
                         "label": "Services",
                         "url": "#brand-identity",
@@ -19,23 +26,14 @@
                         "$$type": "Link"
                     },
                     {
-                        "label": "About",
-                        "url": "#about",
-                        "style": "secondary",
-                        "$$type": "Link"
-                    },
-                    {
                         "label": "Contact",
                         "url": "#contact",
                         "style": "secondary",
                         "$$type": "Link"
                     }
-                ],
-                "variant": "logo-left-primary-nav-right",
-                "colors": "bg-dark-fg-light",
-                "styles": null
+                ]
             },
-            "thumbnail": "images/header-header-07de.png"
+            "thumbnail": "images/footerlinksgroup-studio.png"
         }
     ]
 }

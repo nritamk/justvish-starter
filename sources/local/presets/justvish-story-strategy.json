@@ -1,0 +1,21 @@
+{
+    "model": "JustVishStorySection",
+    "presets": [
+        {
+            "label": "Communication Strategy",
+            "locale": null,
+            "data": {
+                "id": "communication-strategy",
+                "number": "02",
+                "eyebrow": "Communication Strategy",
+                "title": "Strategy that speaks in pictures.",
+                "body": "We transform business goals into engaging visual storytelling by creating a clear communication strategy across digital media, print, and everything else.",
+                "image": "/assets/section-strategy.svg",
+                "imageAlt": "Director reviewing storyboard frames in a softly-lit studio",
+                "align": "left",
+                "bg": "pale"
+            },
+            "thumbnail": "images/justvish-story-strategy.png"
+        }
+    ]
+}

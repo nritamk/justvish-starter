@@ -1,0 +1,21 @@
+{
+    "model": "JustVishStorySection",
+    "presets": [
+        {
+            "label": "Creative Design",
+            "locale": null,
+            "data": {
+                "id": "creative-design",
+                "number": "04",
+                "eyebrow": "Creative Design",
+                "title": "Designs you remember.",
+                "body": "We craft visuals that communicate effectively and leave a lasting impact. Our designs are meant to be seen, understood, and remembered.",
+                "image": "/assets/section-design.svg",
+                "imageAlt": "Designer's desk with film stills, color swatches and a vintage camera",
+                "align": "left",
+                "bg": "light"
+            },
+            "thumbnail": "images/justvish-story-creative-design.png"
+        }
+    ]
+}

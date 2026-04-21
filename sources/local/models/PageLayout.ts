@@ -47,18 +47,7 @@ export const PageLayout: Model = {
             localized: false,
             items: {
                 type: 'model',
-                models: [
-                    'CarouselSection',
-                    'DividerSection',
-                    'FeaturedItemsSection',
-                    'FeaturedPeopleSection',
-                    'FeaturedPostsSection',
-                    'GenericSection',
-                    'ImageGallerySection',
-                    'JustVishStorySection',
-                    'PricingSection',
-                    'RecentPostsSection'
-                ]
+                models: ['JustVishStorySection']
             }
         },
         {

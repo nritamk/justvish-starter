@@ -1,0 +1,27 @@
+{
+    "model": "FooterLinksGroup",
+    "presets": [
+        {
+            "label": "Reach Us",
+            "locale": null,
+            "data": {
+                "title": "Reach Us",
+                "links": [
+                    {
+                        "label": "hello@justvish.in",
+                        "url": "mailto:hello@justvish.in",
+                        "style": "secondary",
+                        "$$type": "Link"
+                    },
+                    {
+                        "label": "Mumbai · India",
+                        "url": "#contact",
+                        "style": "secondary",
+                        "$$type": "Link"
+                    }
+                ]
+            },
+            "thumbnail": "images/footerlinksgroup-reach-us.png"
+        }
+    ]
+}
