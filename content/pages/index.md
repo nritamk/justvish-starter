@@ -25,19 +25,6 @@ hero:
       label: Of storytelling
 sections:
   - type: JustVishStorySection
-    id: communication-strategy
-    number: '02'
-    eyebrow: Communication Strategy
-    title: Strategy that speaks in pictures.
-    body: >-
-      We transform business goals into engaging visual storytelling by creating
-      a clear communication strategy across digital media, print, and everything
-      else.
-    image: /assets/section-strategy.svg
-    imageAlt: Director reviewing storyboard frames in a softly-lit studio
-    align: left
-    bg: pale
-  - type: JustVishStorySection
     id: brand-identity
     number: '01'
     eyebrow: Brand Identity
@@ -50,6 +37,19 @@ sections:
     imageAlt: Cinematic close-up of a camera lens reflecting a brand identity moodboard
     align: right
     bg: light
+  - type: JustVishStorySection
+    id: communication-strategy
+    number: '02'
+    eyebrow: Communication Strategy
+    title: Strategy that speaks in pictures.
+    body: >-
+      We transform business goals into engaging visual storytelling by creating
+      a clear communication strategy across digital media, print, and everything
+      else.
+    image: /assets/section-strategy.svg
+    imageAlt: Director reviewing storyboard frames in a softly-lit studio
+    align: left
+    bg: pale
   - type: JustVishStorySection
     id: film-production
     number: '03'
